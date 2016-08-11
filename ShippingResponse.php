@@ -99,7 +99,7 @@ Class ShippingResponse {
 
     if (is_array($filtered)) {
       foreach ($filtered as $rate) {
-        if (gettype($modifier) == "number" || (gettype($modifier) == "string" && $modifier !== "")) {
+        if (is_numeric($modifier) || (gettype($modifier) == "string" && $modifier !== "")) {
           $this->rates[$rate]['price'] = $this->modifyPrice($this->rates[$rate]['price'], $modifier);
         }
 
