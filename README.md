@@ -83,6 +83,7 @@ $rates->hide([10001,10005,10007]);  // Will hide rates with codes 10001, 10005 a
 
 ##### Notes: 
  * Any rates that are still hidden at the end of the custom logic block will be removed and not passed back to the checkout in the response.
+ * If you hide all rates without adding or showing at least one before outputting the rates, it will result in a generic error
 
 #### `show()`
 
