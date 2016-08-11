@@ -56,8 +56,10 @@ Class ShippingResponse {
   **/
   public function hide($selector) {
     $filtered = $this->filterShippingOptions($selector);
-    foreach ($filtered as $rate) {
-      $this->rates[$rate]['hide'] = true;
+    if (is_array($filtered)) {
+      foreach ($filtered as $rate) {
+        $this->rates[$rate]['hide'] = true;
+      }
     }
   }
 
@@ -68,8 +70,10 @@ Class ShippingResponse {
   **/
   public function show($selector) {
     $filtered = $this->filterShippingOptions($selector);
-    foreach ($filtered as $rate) {
-      unset($this->rates[$rate]['hide']);
+    if (is_array($filtered)) {
+      foreach ($filtered as $rate) {
+        unset($this->rates[$rate]['hide']);
+      }
     }
   }
 
@@ -93,16 +97,18 @@ Class ShippingResponse {
   public function update($selector, $modifier, $method = false, $service_name = false) {
     $filtered = $this->filterShippingOptions($selector);
 
-    foreach ($filtered as $rate) {
-      if (gettype($modifier) == "number" || (gettype($modifier) == "string" && $modifier !== "")) {
-        $this->rates[$rate]['price'] = $this->modifyPrice($this->rates[$rate]['price'], $modifier);
-      }
+    if (is_array($filtered)) {
+      foreach ($filtered as $rate) {
+        if (gettype($modifier) == "number" || (gettype($modifier) == "string" && $modifier !== "")) {
+          $this->rates[$rate]['price'] = $this->modifyPrice($this->rates[$rate]['price'], $modifier);
+        }
 
-      if (gettype($method) == "string") {
-        $this->rates[$rate]['method'] = $method;
-      }
-      if (gettype($service_name) == "string") {
-        $this->rates[$rate]['service_name'] = $service_name;
+        if (gettype($method) == "string") {
+          $this->rates[$rate]['method'] = $method;
+        }
+        if (gettype($service_name) == "string") {
+          $this->rates[$rate]['service_name'] = $service_name;
+        }
       }
     }
   }

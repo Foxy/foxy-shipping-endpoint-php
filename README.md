@@ -73,12 +73,12 @@ Hides one or many existing shipping options.
 
 ##### Example:
 ```php
-$rates->hide(1);  // Will hide rate 1
+$rates->hide(10001);  // Will hide rate 10001
 $rates->hide('all');  // Will hide all rates
 $rates->hide('FedEx');  // Will hide all rates for FedEx
 $rates->hide('Overnight');  // Will hide all rates with a service name that contains 'Overnight'
 $rates->hide('USPS Express');  // Will hide any rates from USPS that contain the word 'Express'
-$rates->hide([1,2,5,7]);  // Will hide rates with codes 1,2,5 and 7
+$rates->hide([10001,10005,10007]);  // Will hide rates with codes 10001, 10005 and 10007
 ```
 
 ##### Notes: 
@@ -95,12 +95,12 @@ Shows one or many existing shipping options that have previously been hidden.
 ##### Example:
 
 ```php
-$rates->show(1);  // Will show rate 1
+$rates->show(10001);  // Will show rate 10001
 $rates->show('all');  // Will show all rates
 $rates->show('FedEx');  // Will show all rates for FedEx
 $rates->show('Overnight');  // Will show all rates with a service name that contains 'Overnight'
 $rates->show('USPS Express');  // Will show any rates from USPS that contain the word 'Express'
-$rates->show([1,2,5,7]);  // Will show rates with codes 1,2,5 and 7
+$rates->show([10001,10005,10007]);  // Will show rates with codes 10001, 10005 and 10007
 ```
 
 #### `update()`
@@ -117,12 +117,12 @@ Updates one or many existing shipping options.
 ##### Examples:
 
 ```php
-$rates->update(1, 5);  // Will set rate 1 to be $5
+$rates->update(10001, 5);  // Will set rate 10001 to be $5
 $rates->update('all', '*2');  // Will set all current rates to double their current cost
 $rates->update('FedEx', '+5');  // Will set all rates for FedEx to be $5 more than what they are currently
 $rates->update('Overnight', '-5');  // Will set all rates with a service name that contains 'Overnight' to be $5 less than currently set
 $rates->update('USPS Express', '=6');  // Will set any rates from USPS that contain the word 'Express' to be $6
-$rates->update([1,2,5,7], '/2');  // Will set rates with codes 1,2,5 and 7 to be half their current cost
+$rates->update([10001,10005,10007], '/2');  // Will set rates with codes 10001, 10005 and 10007 to be half their current cost
 $rates->update('USPS', '+20%');  // Will add 20% of the current rate to each of the USPS rates
 $rates->update('USPS Ground', false, false, 'Super Saver');  // Will change “USPS Ground” to be called “USPS Super Saver”
 ```
