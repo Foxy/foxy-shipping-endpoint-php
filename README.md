@@ -2,6 +2,11 @@
 
 This is a PHP helper class for creating custom shipping rates for the FoxyCart Custom Shipping Endpoint functionality added in version 2.0
 
+## Requirements
+
+* PHP 5.3+
+* FoxyCart 2.0
+
 ## Example Usage
 
 FoxyCart POSTs to your endpoint script a JSON payload containing information about the customers cart and address. As an example of a simple endpoint using the ShippingResponse helper class:
