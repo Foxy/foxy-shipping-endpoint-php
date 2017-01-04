@@ -12,7 +12,9 @@ Class ShippingResponse {
 
   function __construct($cart_details = false) {
     if ($cart_details == false) {
-      trigger_error("The cart JSON payload is required to be passed to the ShippingResponse object", E_USER_ERROR);
+      http_response_code(400);
+      echo("ShippingResponse Error: The cart JSON payload is required to be passed to the ShippingResponse object");
+      exit();
     }
 
     $this->rates = array();
