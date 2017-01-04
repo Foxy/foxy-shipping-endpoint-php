@@ -4,7 +4,7 @@
  *
  * @author foxy.io
  * @copyright foxy.io
- * @version 1.0.0
+ * @version 1.0.1
  * @license MIT http://opensource.org/licenses/MIT
  */
 
