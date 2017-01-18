@@ -217,7 +217,7 @@ if ($cart_details['_embedded']['fx:shipment']['total_weight'] > 10) {
   $rates->update(10003, 11.99);
 }
  
-if (count($cart_details['_embedded']['fx:items']) > 5) {
+if ($cart_details['_embedded']['fx:shipment']['item_count'] > 5) {
   $rates->remove(10003);
 }
 ```
@@ -228,16 +228,16 @@ if (count($cart_details['_embedded']['fx:items']) > 5) {
 * Two different groups of shipping options are presented, one for local delivery within the US, and one for international addresses based off of the shipping country.
 
 ```php
-$item_count = count($cart_details['_embedded']['fx:items']);
+$item_count = $cart_details['_embedded']['fx:shipment']['item_count'];
 if ($cart_details['_embedded']['fx:shipment']['country'] == "US") {
   $postage = 10 + (($item_count - 1) * 0.50);
-  $rates->add(10001, postage, 'FoxyPost', 'Standard');
+  $rates->add(10001, $postage, 'FoxyPost', 'Standard');
  
   $postage = 12 + (($item_count - 1) * 1.50);
-  $rates->add(10002, postage, 'FoxyPost', 'Express');
+  $rates->add(10002, $postage, 'FoxyPost', 'Express');
 } else {
   $postage = 15 + (($item_count - 1) * 2);
-  $rates->add(10003, postage, 'FoxyPost', 'International');
+  $rates->add(10003, $postage, 'FoxyPost', 'International');
 }
 ```
 
