@@ -218,7 +218,7 @@ if ($cart_details['_embedded']['fx:shipment']['total_weight'] > 10) {
 }
  
 if ($cart_details['_embedded']['fx:shipment']['item_count'] > 5) {
-  $rates->remove(10003);
+  $rates->hide(10003);
 }
 ```
 
