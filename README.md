@@ -264,7 +264,7 @@ foreach($cart_details['_embedded']['fx:items'] as $item) {
 if ($hasCategoryB && !$hasCategoryA) {
   $rates->add(10001, 0, '', 'Free Ground Shipping', false, false);
 } else if ($hasCategoryA) {
-  $rates->add(10002, 5.99, 'FoxyPost', 'Express')
+  $rates->add(10002, 5.99, 'FoxyPost', 'Express');
 }
 ```
 
