@@ -4,7 +4,7 @@
  *
  * @author foxy.io
  * @copyright foxy.io
- * @version 1.0.1
+ * @version 1.1
  * @license MIT http://opensource.org/licenses/MIT
  */
 
@@ -17,7 +17,7 @@ Class ShippingResponse {
       exit();
     }
 
-    $this->rates = array();
+    $this->rates = (array_key_exists('fx:shipping_results', $cart_details['_embedded'])) ? $cart_details['_embedded']['fx:shipping_results'] : array();
     $this->error = false;
     $this->cart_details = $cart_details;
   }
